@@ -1,0 +1,25 @@
+{
+  "name": "redux-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive",
+    "test:watch": "npm run test -- --watch"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "author": "Evan Turner <ev@evturn.com> (http://evturn.com/)",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-immutable": "^1.5.3",
+    "mocha": "^2.3.4"
+  },
+  "dependencies": {
+    "immutable": "^3.7.5"
+  }
+}
