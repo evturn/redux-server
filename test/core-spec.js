@@ -138,4 +138,22 @@ describe('application logic', () => {
 
   });
 
+  it('marks winner when just one entry left', () => {
+    const state = Map({
+      vote: Map({
+        pair: List.of('Magic Johnson', 'Dominique Wilkins'),
+        tally: Map({
+          'Magic Johnson': 4,
+          'Dominique Wilkins': 2
+        })
+      }),
+      entries: List()
+    });
+    const nextState = next(state);
+
+    expect(nextState).to.equal(Map({
+      winner: 'Magic Johnson'
+    }));
+  });
+
 });
