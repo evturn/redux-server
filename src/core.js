@@ -36,6 +36,9 @@ export function next(state) {
   const winners = getWinners(state.get('vote'));
   const entries = state.get('entries').concat(winners);
 
+  // Could return Map({winner: entries.first()})
+  // Morph the old state into the new one
+  // instead of building the new state completely from scratch
   if (entries.size === 1) {
     return state
       .remove('vote')
