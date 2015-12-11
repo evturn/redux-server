@@ -57,4 +57,20 @@ describe('reducer', () => {
     }));
   });
 
+  it('can be used with reduce', () => {
+    const actions = [
+      {type: 'SET_ENTRIES', entries: ['Magic Johnson', 'Dominique Wilkins']},
+      {type: 'NEXT'},
+      {type: 'VOTE', entry: 'Magic Johnson'},
+      {type: 'VOTE', entry: 'Dominique Wilkins'},
+      {type: 'VOTE', entry: 'Magic Johnson'},
+      {type: 'NEXT'}
+    ];
+    const finalState = actions.reduce(reducer, Map());
+
+    expect(finalState).to.equal(fromJS({
+      winner: 'Magic Johnson'
+    }));
+  });
+
 });
