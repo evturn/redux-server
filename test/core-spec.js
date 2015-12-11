@@ -51,21 +51,15 @@ describe('application logic', () => {
 
     it('creates a tally for the voted entry', () => {
       const state = Map({
-        vote: Map({
-          pair: List.of('Magic Johnson', 'Dominique Wilkins')
-        }),
-        entries: List()
+        pair: List.of('Magic Johnson', 'Dominique Wilkins')
       });
       const nextState = vote(state, 'Magic Johnson');
 
       expect(nextState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Magic Johnson', 'Dominique Wilkins'),
-          tally: Map({
-            'Magic Johnson': 1
-          })
-        }),
-        entries: List()
+        pair: List.of('Magic Johnson', 'Dominique Wilkins'),
+        tally: Map({
+          'Magic Johnson': 1
+        })
       }));
     });
 
@@ -83,20 +77,16 @@ describe('application logic', () => {
       const nextState = vote(state, 'Magic Johnson');
 
       expect(nextState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Magic Johnson', 'Dominique Wilkins'),
-          tally: Map({
-            'Magic Johnson': 4,
-            'Dominique Wilkins': 2
-          })
-        }),
-        entries: List()
+        pair: List.of('Magic Johnson', 'Dominique Wilkins'),
+        tally: Map({
+          'Magic Johnson': 4,
+          'Dominique Wilkins': 2
+        })
       }));
     });
 
   it('puts winner of current vote back to entries', () => {
       const state = Map({
-        vote: Map({
           pair: List.of('Magic Johnson', 'Dominique Wilkins'),
           tally: Map({
             'Magic Johnson': 4,
