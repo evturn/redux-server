@@ -2,7 +2,6 @@ import {Map, fromJS} from 'immutable';
 import {expect} from 'chai';
 import reducer from '../src/reducer';
 
-
 describe('reducer', () => {
 
   it('handles SET_ENTRIES', () => {
@@ -46,6 +45,15 @@ describe('reducer', () => {
         tally: { 'Magic Johnson': 1 }
       },
       entries: []
+    }));
+  });
+
+  it('has an initial state', () => {
+    const action = { type: 'SET_ENTRIES', entries: ['Magic Johnson'] };
+    const nextState = reducer(undefined, action);
+
+    expect(nextState).to.equal(fromJS({
+      entries: ['Magic Johnson']
     }));
   });
 
